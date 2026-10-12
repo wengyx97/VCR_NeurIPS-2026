@@ -52,5 +52,6 @@ dataset.h5
 ```bash
 python train.py
 ```
+to train the Orthogonal Tokenizer.
 We recommend training on **1 × NVIDIA RTX 5090 (or better)** GPUs.
 
