@@ -49,7 +49,8 @@ dataset.h5
 
 ### 2. Train the Orthogonal Tokenizer
 `train.py` and `config.py` are the training and configuration scripts specifically for Orthogonal Tokenizer training. After setting hyperparamters, directly run:
-```bash python train.py
+```bash
+python train.py
 ```
 We recommend training on **1 × NVIDIA RTX 5090 (or better)** GPUs.
 
