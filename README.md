@@ -55,3 +55,31 @@ python train.py
 to train the Orthogonal Tokenizer.
 We recommend training on **1 × NVIDIA RTX 5090 (or better)** GPUs.
 
+### 3. Extracting Tokens for Backbone
+After training the Orthogonal Tokenizer, run ```extract_tokens.py``` to extract shared and modality-specific tokens for the backbone:
+```bash
+python extract_tokens.py
+```
+It expects the tokenizer checkpoint at: ```checkpoints_good_tokenizer/tokenizer.pth```. It extracts tokens for both the training and validation sets and saves them to: 
+```bash
+tmp/backbone_tokens/train_tokens.pt
+tmp/backbone_tokens/val_tokens.pt
+```
+Each ```.pt``` file is a PyTorch serialized dictionary containing:
+```bash
+{
+    "S_tokens": Tensor[num_samples, 4, 10, 256],  # shared tokens
+    "T_tokens": Tensor[num_samples, 4, 10, 256],  # modality-specific tokens
+    "num_samples": int,
+    "d_model": 256,
+    "num_modalities": 4,
+    "num_patches": 10,
+    "modalities": ["ppg", "eda", "acc", "temp"],
+    "dtype": "float16"
+}
+```
+
+
+### 4. Train the Missing-Aware MoE Backbone
+
+
