@@ -81,5 +81,10 @@ Each ```.pt``` file is a PyTorch serialized dictionary containing:
 
 
 ### 4. Train the Missing-Aware MoE Backbone
-
+Then we train the Missing-Aware MoE Backbone using the cached token files:
+```bash
+python train_backbone.py
+```
+Training hyperparameters can be modified in ```backbone_config.py```. 
+Checkpoints are saved to: ```backbone_checkpoints/```.
 
