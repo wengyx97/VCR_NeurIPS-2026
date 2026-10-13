@@ -1,6 +1,6 @@
 # VCR
 Official implementation of our NeurIPS 2026 paper: 
-[**VCR: Learning Valid Contextual Representation for Incomplete Wearable  Signals**](https://neurips.cc/virtual/2026/loc/sydney/poster/155491)
+[**VCR: Learning Valid Contextual Representation for Incomplete Wearable  Signals**](https://openreview.net/forum?id=5BWCy21RFh)
 
 ![vcr](vcr.svg)
 
@@ -16,7 +16,12 @@ Our implementation is developed with the following environment:
 - **PyTorch:** 2.8.0
 - **CUDA:** 12.8
 
+---
+
 ## Model Training
+
+---
+
 ### 1. Prepare Pre-training Data
 The raw wearable-sensor recordings are converted into HDF5 format using the following preprocessing scripts:
 
@@ -47,6 +52,8 @@ dataset.h5
     └── ...
 ```
 
+---
+
 ### 2. Train the Orthogonal Tokenizer
 `train.py` and `config.py` are the training and configuration scripts specifically for Orthogonal Tokenizer training. After setting hyperparamters, directly run:
 ```bash
@@ -54,6 +61,8 @@ python train.py
 ```
 to train the Orthogonal Tokenizer.
 We recommend training on **1 × NVIDIA RTX 5090 (or better)** GPUs.
+
+---
 
 ### 3. Extracting Tokens for Backbone
 After training the Orthogonal Tokenizer, run ```extract_tokens.py``` to extract shared and modality-specific tokens for the backbone:
@@ -79,6 +88,8 @@ Each ```.pt``` file is a PyTorch serialized dictionary containing:
 }
 ```
 
+---
+
 
 ### 4. Train the Missing-Aware MoE Backbone
 Then we train the Missing-Aware MoE Backbone using the cached token files:
@@ -87,4 +98,22 @@ python train_backbone.py
 ```
 Training hyperparameters can be modified in ```backbone_config.py```. 
 Checkpoints are saved to: ```backbone_checkpoints/```.
+
+---
+
+
+## Citation
+
+If you find our project useful, please consider citing our work:
+
+```bibtex
+@inproceedings{
+anonymous2026vcr,
+title={{VCR}: Learning Valid Contextual Representation for Incomplete Wearable Signals},
+author={Anonymous},
+booktitle={The Fortieth Annual Conference on Neural Information Processing Systems},
+year={2026},
+url={https://openreview.net/forum?id=5BWCy21RFh}
+}
+```
 
