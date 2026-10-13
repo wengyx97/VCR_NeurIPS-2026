@@ -110,7 +110,7 @@ If you find our project useful, please consider citing our work:
 @inproceedings{
 anonymous2026vcr,
 title={{VCR}: Learning Valid Contextual Representation for Incomplete Wearable Signals},
-author={Anonymous},
+author={Yuxuan Weng and Wenhan Luo and Qijia Shao},
 booktitle={The Fortieth Annual Conference on Neural Information Processing Systems},
 year={2026},
 url={https://openreview.net/forum?id=5BWCy21RFh}
