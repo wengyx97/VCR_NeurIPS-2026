@@ -127,15 +127,12 @@ class ContrastiveLoss(nn.Module):
                                                                                   
                                                              
                                                             
-        temporal_pos = is_same_mod & (~is_same_patch)
-        cross_modal_pos = (~is_same_mod) & is_same_patch
-        
-        pos_mask = is_same_sample & (temporal_pos | cross_modal_pos)
+        pos_mask = is_same_sample & (~is_same_mod) & is_same_patch
         
                                 
                                                    
                    
-        neutral_mask = is_same_sample & (~is_same_mod) & (~is_same_patch)
+        neutral_mask = is_same_sample & (~is_same_patch)
         ignore_mask = neutral_mask | is_self
         
                                                           
